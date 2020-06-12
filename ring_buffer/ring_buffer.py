@@ -11,6 +11,8 @@ class RingBuffer:
         if len(self.arr) == self.capacity:
             if self.length == self.capacity:
                 self.length = 0
+                self.arr[self.length] = item
+                self.length += 1
             else:
                 self.arr[self.length] = item
                 self.length += 1
