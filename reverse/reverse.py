@@ -40,4 +40,12 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        if node is None:
+            return
+        if node.next_node is None:
+            self.head = node
+        self.reverse_list(node.next_node, node)
+        node.next_node = prev
+
+        # go to the very end of the list mean while setting all the "next_nodes" to a new previous one
+        # when me reach None and coming back reset all pointers to prev
